@@ -1,43 +1,32 @@
-package j0123;
+package stuprogram;
 
-public class Stu {
+public class Students {
 	
-	static int count = 0;
-	private int no;
-	private String name;
-	private int kor, eng, math;
-	private int total;
-	private double avg;
-	private int rank;
 	
-	Stu(){}
-
-	Stu(String name, int kor, int eng, int math) {
-		this.no = ++count; // 자동
+	Students(){}
+	
+	Students(String name, int kor, int eng, int math){
+		this.no = ++count;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
-		this.total = kor + eng + math; // 자동
-		this.avg = this.total/3.0; // 자동
-	}
+		this.total = kor + eng + math;
+		this.avg = total/3.0;
+		this.rank = 0;
+	}	
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
+	static int count = 0;
+	private int no;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private int total;
+	private double avg;
+	private int rank = 0;
 	
-	@Override
-	public boolean equals(Object obj) { // 학생 이름 비교
-		if(obj!=null && obj instanceof Stu) {
-			return name == ((Stu)obj).name;
-		}else {
-			return false;
-		}
-	}
 	
-
 	public int getNo() {
 		return no;
 	}
@@ -87,6 +76,8 @@ public class Stu {
 	}
 
 	public double getAvg() {
+		// 소수점 둘째자리까지만 출력
+		avg = Math.round(avg*100)/100.0;
 		return avg;
 	}
 
